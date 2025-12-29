@@ -49,9 +49,11 @@ Bash
 # Clone the repository
 ```json
 git clone [https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git](https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git)
+
    ```
 
 # Create the directory and copy files
+
 ```json
 mkdir -p ~/.config/waybar
 cp -r omarchy-radius-waybar/* ~/.config/waybar/
@@ -64,5 +66,6 @@ Bash
 ```json
 killall waybar && waybar &
    ```
+Reboot Your Pc Ones
 
 <div align="center"> <br /> <sub>Built with ❤️ for the Linux Ricing community</sub> </div>
