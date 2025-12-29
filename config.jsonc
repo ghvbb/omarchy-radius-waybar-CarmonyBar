@@ -1,0 +1,82 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+
+    "modules-left": ["custom/omarchy", "hyprland/workspaces", "mpris"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/updates",
+        "custom/weather",
+        "group/apps",      
+        "group/hardware",  
+        "network",
+        "pulseaudio", 
+        "battery",
+        "custom/power"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [] }
+    },
+
+    "clock": {
+        "format": "󱑂 {:%I:%M %p}",
+        "format-alt": "󰸗 {:%A, %B %d}", 
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+"custom/weather": {
+    "format": "󰖐 {}°C",
+    "interval": 3600,
+    "exec": "curl -s 'wttr.in/New+York?format=%t' | grep -oE '[0-9]+'",
+    "on-click": "xdg-open 'https://www.google.com/search?q=weather+new+york'"
+},
+
+    "group/apps": {
+        "orientation": "inherit",
+        "drawer": { "transition-duration": 500, "children-class": "app-item", "transition-left-to-right": false },
+        "modules": ["custom/google-launcher", "custom/google-tasks", "custom/google-keep"]
+    },
+
+    "custom/google-launcher": { "format": "󰊭", "tooltip": false },
+    "custom/google-tasks": { "format": "󰓇", "on-click": "xdg-open 'https://tasks.google.com/'" },
+    "custom/google-keep": { "format": "󰂺", "on-click": "xdg-open 'https://keep.google.com/'" },
+
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": { "transition-duration": 500, "children-class": "hw-item", "transition-left-to-right": false },
+        "modules": ["cpu", "bluetooth"]
+    },
+
+    "cpu": { "format": "󰍛", "on-click": "omarchy-launch-or-focus-tui btop" },
+    "bluetooth": { "format": "", "format-connected": "󰂱", "on-click": "omarchy-launch-bluetooth" },
+
+    "mpris": { "format": "{player_icon} {title}", "player-icons": { "default": "󰝚" }, "max-length": 20 },
+    "network": { "format-wifi": " ", "on-click": "omarchy-launch-wifi" },
+    "custom/updates": { "format": "󰮯 {}", "exec": "checkupdates | wc -l" },
+    "custom/omarchy": { "format": "󰣇", "on-click": "omarchy-menu" },
+    "pulseaudio": { "format": "{icon} {volume}%", "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] } },
+    
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {icon} {capacity}%",
+        "format-plugged": " {icon} {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "custom/power": { "format": "󰐥", "on-click": "omarchy-menu power" }
+}

@@ -1,0 +1,72 @@
+@import "../../.config/omarchy/current/theme/waybar.css";
+
+* {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 13px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
+
+window#waybar { background: transparent; }
+
+/* Global Module Styling */
+#custom-omarchy, #workspaces, #clock, #network, #cpu, #bluetooth, #mpris, #pulseaudio, 
+#battery, #custom-updates, #custom-weather, #custom-power, #custom-google-launcher, 
+#custom-google-tasks, #custom-google-keep {
+    background: alpha(@background, 0.6); 
+    border-radius: 14px;
+    padding: 0px 10px;
+    margin: 4px 3px;
+}
+
+/* --- Workspaces --- */
+#workspaces { border: 2px solid #cdd6f4; padding: 0px 2px; }
+#workspaces button { padding: 0px 12px; color: @text; margin: 3px 1px; }
+#workspaces button.active { color: #232829; background: #f38ba8; border-radius: 10px; }
+
+/* --- Colors & Borders --- */
+#clock { color: #89b4fa; border: 2px solid #89b4fa; }
+#network { color: #a6e3a1; border: 2px solid #a6e3a1; }
+#custom-weather { color: #f9e2af; border: 2px solid #f9e2af; }
+#mpris { color: #f38ba8; border: 2px solid #f38ba8; }
+
+/* Google Apps Drawer */
+#custom-google-launcher { color: #cba6f7; border: 2px solid #cba6f7; }
+#custom-google-tasks { color: #89b4fa; border: 2px solid #89b4fa; }
+#custom-google-keep { color: #f9e2af; border: 2px solid #f9e2af; }
+
+/* Hardware Drawer */
+#cpu { color: #cba6f7; border: 2px solid #cba6f7; }
+#bluetooth { color: #89b4fa; border: 2px solid #89b4fa; }
+
+/* Rest of Modules */
+#custom-updates { color: #fab387; border: 2px solid #fab387; }
+#pulseaudio { color: #89dceb; border: 2px solid #89dceb; }
+#custom-power, #custom-omarchy { color: #f38ba8; border: 2px solid #f38ba8; }
+
+/* --- New Aesthetic Battery Section --- */
+
+/* Not Charging: Using your @selected-text color */
+#battery { 
+    color: #85abbc; 
+    border: 2px solid #85abbc; 
+}
+
+/* Charging: Using a Lavender Purple */
+#battery.charging { 
+    color: #cba6f7; 
+    border: 2px solid #cba6f7;
+    background: alpha(@background, 0.6); 
+}
+
+/* Plugged/Full */
+#battery.plugged {
+    color: #89b4fa;
+    border: 2px solid #89b4fa;
+}
+
+/* Warning state for better visibility */
+#battery.warning {
+    color: #fab387;
+    border: 2px solid #fab387;
+}
