@@ -1,7 +1,7 @@
 <div align="center">
 
 # ⭕ Omarchy Radius Waybar
-**A minimalist, modular Waybar theme built for modern Linux setups.**
+**A minimalist, modular Waybar theme built for modern Omarchy Linux setups.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Waybar](https://img.shields.io/badge/Status-Stable-16AB2A)](https://github.com/Alexays/Waybar)
