@@ -62,7 +62,7 @@
     "mpris": { "format": "{player_icon} {title}", "player-icons": { "default": "󰝚" }, "max-length": 20 },
     "network": { "format-wifi": " ", "on-click": "omarchy-launch-wifi" },
     "custom/updates": { "format": "󰮯 {}", "exec": "checkupdates | wc -l" },
-    "custom/omarchy": { "format": "󰣇", "on-click": "omarchy-menu" },
+    "custom/omarchy": { "format": " 󰣇 ", "on-click": "omarchy-menu" },
     "pulseaudio": { "format": "{icon} {volume}%", "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] } },
     
     "battery": {
