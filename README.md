@@ -37,18 +37,16 @@ Update your `config.jsonc` with the following block:
    ```
 
 ## 🚀 Installation
-1. Backup your current configuration
-Rename your existing waybar folder to waybarback to keep it as a backup:
+🚀 Quick Installation
+Run this single command to backup your old config and install Omarchy Radius:
+```json
+mv ~/.config/waybar ~/.config/waybarback 2>/dev/null; git clone [https://github.com/hembramnishant50-glitch/omarchy-radius-waybar.git](https://github.com/hembramnishant50-glitch/omarchy-radius-waybar.git) ~/.config/waybar && killall waybar; waybar &
+   ```
 
-Bash
-
-mv ~/.config/waybar ~/.config/waybarback
-2. Install Omarchy Radius
-Bash
 
 # Clone the repository
 ```json
-git clone [https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git](https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git)
+git clone https://github.com/hembramnishant50-glitch/omarchy-radius-waybar.git
 
    ```
 
