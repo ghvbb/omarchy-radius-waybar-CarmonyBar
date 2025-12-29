@@ -34,11 +34,6 @@ Update your `config.jsonc` with the following block:
     "on-click": "xdg-open '[https://www.google.com/search?q=weather+CITY_NAME](https://www.google.com/search?q=weather+CITY_NAME)'"
 }
 
-
-
-- Install
-```bash
-omarchy-theme-install https://github.com/hembramnishant50-glitch/omarchy-radius.git
    ```
 
 ## 🚀 Installation
@@ -52,15 +47,22 @@ mv ~/.config/waybar ~/.config/waybarback
 Bash
 
 # Clone the repository
+```json
 git clone [https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git](https://github.com/YOUR_USERNAME/omarchy-radius-waybar.git)
+   ```
 
 # Create the directory and copy files
+```json
 mkdir -p ~/.config/waybar
 cp -r omarchy-radius-waybar/* ~/.config/waybar/
+   ```
+
 3. Apply Changes
 Reload Waybar to see the new theme:
 
 Bash
-
+```json
 killall waybar && waybar &
+   ```
+
 <div align="center"> <br /> <sub>Built with ❤️ for the Linux Ricing community</sub> </div>
