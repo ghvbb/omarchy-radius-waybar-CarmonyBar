@@ -7,7 +7,7 @@
 [![Waybar](https://img.shields.io/badge/Status-Stable-16AB2A)](https://github.com/Alexays/Waybar)
 [![Platform](https://img.shields.io/badge/Platform-Wayland-39515A)](https://wayland.freedesktop.org/)
 
-<img width="100%" alt="Omarchy Radius Preview" src="https://github.com/user-attachments/assets/e505d542-1859-4458-abd9-5cd61c622a88" />
+<img width="100%" alt="RadiusBar Preview" src="https://github.com/user-attachments/assets/ccdbde8b-b0e1-466a-9017-24f471590e45" />
 
 ---
 
