@@ -1,76 +1,172 @@
 @import "../../.config/omarchy/current/theme/waybar.css";
 
 * {
-    font-family: 'JetBrainsMono Nerd Font';
-    font-size: 13px;
-    font-weight: 800;
-    transition: all 0.3s ease;
+    font-family: 'Google Sans Display';
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
 }
 
-window#waybar { background: transparent; }
+window#waybar {
+    background: transparent;
+}
 
-/* Global Module Styling */
-#custom-omarchy, #workspaces, #clock, #network, #cpu, #bluetooth, #mpris, #pulseaudio, 
-#battery, #custom-updates, #custom-weather, #custom-power {
-    background: alpha(@background, 0.6); 
+tooltip {
+    background: alpha(@background, 0.95);
+    border: 2px solid alpha(@foreground, 0.5);
+    border-radius: 12px;
+    color: @foreground;
+}
+
+tooltip label {
+    padding: 6px 8px;
+}
+
+#custom-omarchy,
+#workspaces,
+#clock,
+#custom-cava,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-power {
+    background: alpha(@background, 0.75);
+    border: 2px solid alpha(@foreground, 0.4);
     border-radius: 14px;
-    padding: 0px 10px;
+    padding: 0px 14px;
+    margin: 5px 4px;
+    color: @foreground;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-omarchy:hover,
+#clock:hover,
+#custom-cava:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#custom-power:hover {
+    background: alpha(@foreground, 0.12);
+    border-color: alpha(@foreground, 0.7);
+}
+
+#custom-omarchy {
+    font-size: 16px;
+    padding: 0px 12px;
+    margin-left: 6px;
+}
+
+#custom-omarchy:hover {
+    background: alpha(@foreground, 0.18);
+}
+
+#custom-power {
+    font-size: 15px;
+    padding: 0px 12px;
+    margin-right: 6px;
+}
+
+#custom-power:hover {
+    background: alpha(@foreground, 0.22);
+}
+
+#workspaces {
+    padding: 0px 6px;
+}
+
+#workspaces button {
+    font-size: 13px;
+    padding: 0px 8px;
     margin: 4px 3px;
-}
-
-/* --- Workspaces --- */
-#workspaces { 
-    border: 2px solid #cdd6f4; 
-    padding: 0px 2px; 
-}
-
-#workspaces button { 
-    padding: 0px 12px; 
-    color: @text; 
-    margin: 3px 1px; 
-}
-
-/* Hover Effect: Changes to Light Green when mouse is over 1, 2, 3, 4... */
-#workspaces button:hover {
-    color: #1e1e2e;          
-    background: #a6e3a1;     /* Light Green Hover */
+    color: alpha(@foreground, 0.5);
+    background: transparent;
+    border: none;
     border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#workspaces button.active { 
-    color: #232829; 
-    background: #f38ba8; 
-    border-radius: 10px; 
+#workspaces button:hover {
+    color: @foreground;
+    background: alpha(@foreground, 0.12);
 }
 
-/* --- Colors & Borders --- */
-#clock { color: #89b4fa; border: 2px solid #89b4fa; }
-#network { color: #a6e3a1; border: 2px solid #a6e3a1; }
-#custom-weather { color: #f9e2af; border: 2px solid #f9e2af; }
-#mpris { color: #f38ba8; border: 2px solid #f38ba8; }
-#cpu { color: #cba6f7; border: 2px solid #cba6f7; }
-#bluetooth { color: #89b4fa; border: 2px solid #89b4fa; }
-#custom-updates { color: #fab387; border: 2px solid #fab387; }
-#pulseaudio { color: #89dceb; border: 2px solid #89dceb; }
-#custom-power, #custom-omarchy { color: #f38ba8; border: 2px solid #f38ba8; }
-
-/* --- Battery Personalization (Lighter Colors) --- */
-
-/* Non-Charging: Light Mint Green */
-#battery { 
-    color: #94e2d5; 
-    border: 2px solid #94e2d5; 
+#workspaces button.active {
+    color: @background;
+    background: @foreground;
+    font-weight: 700;
+    padding: 0px 10px;
 }
 
-/* Charging: Light Peach/Orange */
-#battery.charging, #battery.plugged { 
-    color: #f9e2af; 
-    border: 2px solid #f9e2af;
-    background: alpha(@background, 0.6); 
-    animation: none; 
+#workspaces button.urgent {
+    color: @background;
+    background: alpha(@foreground, 0.7);
+    animation: urgentPulse 1.2s ease-in-out infinite;
 }
 
-#battery.warning:not(.charging) {
-    color: #fab387;
-    border: 2px solid #fab387;
+@keyframes urgentPulse {
+}
+
+#clock {
+    font-weight: 700;
+    font-size: 13px;
+    padding: 0px 16px;
+}
+
+#custom-cava {
+    font-size: 12px;
+    padding: 0px 8px;
+    min-width: 80px;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+#custom-cava:hover {
+    opacity: 1;
+}
+
+#network {
+    font-size: 13px;
+    padding: 3px 10px;
+}
+
+#network.disconnected {
+    color: alpha(@foreground, 0.35);
+    border-color: alpha(@foreground, 0.2);
+}
+
+#network.disconnected:hover {
+    color: alpha(@foreground, 0.6);
+}
+
+#bluetooth {
+    font-size: 14px;
+    padding: 0px 12px;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: alpha(@foreground, 0.35);
+    border-color: alpha(@foreground, 0.2);
+}
+
+#bluetooth.connected {
+    color: @foreground;
+}
+
+#pulseaudio {
+    padding: 0px 14px;
+}
+
+#pulseaudio.muted {
+    color: alpha(@foreground, 0.35);
+    border-color: alpha(@foreground, 0.2);
+}
+
+#pulseaudio.muted:hover {
+    color: alpha(@foreground, 0.6);
+}
+
+#custom-omarchy,
+#custom-power {
+    border-color: alpha(@foreground, 0.5);
 }
