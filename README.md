@@ -4,7 +4,7 @@
 **A minimalist, modular Waybar theme built for modern Omarchy Linux setups.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Waybar](https://img.shields.io/badge/Status-Stable-16AB2A)](https://github.com/Alexays/Waybar)
+[![Waybar](https://img.shields.io/badge/Status-Untable-16AB2A)](https://github.com/Alexays/Waybar)
 [![Platform](https://img.shields.io/badge/Platform-Wayland-39515A)](https://wayland.freedesktop.org/)
 
 <img width="100%" alt="RadiusBar Preview" src="https://github.com/user-attachments/assets/ccdbde8b-b0e1-466a-9017-24f471590e45" />
