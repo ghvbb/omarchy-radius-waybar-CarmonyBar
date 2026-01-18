@@ -1,75 +1,146 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 32,
-    "margin-top": 0,
-    "margin-left": 10,
-    "margin-right": 10,
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 14,
+    "margin-right": 14,
     "spacing": 0,
+    "reload_style_on_change": true,
 
-    "modules-left": ["custom/omarchy", "hyprland/workspaces", "mpris"],
-    "modules-center": ["clock"],
+    "modules-left": [
+        "custom/omarchy",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "custom/cava",
+        "clock"
+    ],
     "modules-right": [
-        "custom/updates",
-        "custom/weather",
-        "group/hardware",  
         "network",
-        "pulseaudio", 
-        "battery",
+        "bluetooth",
+        "pulseaudio",
         "custom/power"
     ],
 
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰲠",
+            "2": "󰲢",
+            "3": "󰲤",
+            "4": "󰲦",
+            "5": "󰲨",
+            "active": "",
+            "urgent": "󰗖",
+            "default": "󰧞"
+        },
         "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
         "all-outputs": true,
-        "persistent-workspaces": { "1": [], "2": [], "3": [], "4": [] }
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
     },
 
     "clock": {
-        "format": "󱑂 {:%I:%M %p}",
-        "format-alt": "󰸗 {:%A, %B %d}", 
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": "{:%I:%M}",
+        "format-alt": "{:%A, %B %d}",
+        "tooltip-format": "<tt><big>  {:%Y %B}</big>\n\n{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "on-scroll": 1,
+            "format": {
+                "months": "<b>{}</b>",
+                "weeks": "<b>W{}</b>",
+                "weekdays": "<b>{}</b>",
+                "days": "{}",
+                "today": "<b><u>{}</u></b>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "interval": 60
     },
 
-    "custom/weather": {
-        "format": "󰖐 {}°C",
-        "interval": 3600,
-        "exec": "curl -s 'wttr.in/New+York?format=%t' | grep -oE '[0-9]+'",
-        "on-click": "xdg-open 'https://www.google.com/search?q=weather+new+york'"
+    "custom/cava": {
+        "exec": "omarchy-cava-waybar",
+        "format": "{}",
+        "tooltip": false,
+        "layer": "overlay",
+        "on-click": "kitty --class floating-terminal -e cava",
+        "on-click-right": "kitty --class floating-terminal -e pulsemixer",
+        "on-click-middle": "kitty --class floating-terminal -e alsamixer"
     },
 
-    "group/hardware": {
-        "orientation": "inherit",
-        "drawer": { "transition-duration": 500, "children-class": "hw-item", "transition-left-to-right": false },
-        "modules": ["cpu", "bluetooth"]
-    },
-
-    "cpu": { "format": "󰍛", "on-click": "omarchy-launch-or-focus-tui btop" },
-    "bluetooth": { "format": "", "format-connected": "󰂱", "on-click": "omarchy-launch-bluetooth" },
-
-    "mpris": { "format": "{player_icon} {title}", "player-icons": { "default": "󰝚" }, "max-length": 20 },
-    "network": { "format-wifi": " ", "on-click": "omarchy-launch-wifi" },
-    
-    // Updated to open update in terminal
-    "custom/updates": { 
-        "format": "󰮯 {}", 
-        "exec": "checkupdates | wc -l",
-        "on-click": "omarchy-launch-or-focus-tui omarchy-update",
-        "interval": 3600
-    },
-
-    "custom/omarchy": { "format": " 󰣇 ", "on-click": "omarchy-menu" },
-    "pulseaudio": { "format": "{icon} {volume}%", "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] } },
-    
-    "battery": {
+    "network": {
+        "format-wifi": "<span> </span>",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format-wifi": "  {essid}\n󰩟  {ipaddr}\n󱑽  {signalStrength}%\n󰁅  {bandwidthDownBits}\n󰁝  {bandwidthUpBits}",
+        "tooltip-format-ethernet": "󰈀  {ifname}\n󰩟  {ipaddr}\n󰁅  {bandwidthDownBits}\n󰁝  {bandwidthUpBits}",
+        "tooltip-format-disconnected": "󰖪  No connection",
         "interval": 5,
-        "states": { "warning": 30, "critical": 15 },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {icon} {capacity}%", // No animation/glow via CSS later
-        "format-plugged": " {icon} {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "on-click": "omarchy-launch-wifi",
+        "on-click-right": "kitty --class floating-terminal -e nmtui"
     },
 
-    "custom/power": { "format": "󰐥", "on-click": "omarchy-menu power" }
+    "bluetooth": {
+        "format": "󰂯",
+        "format-on": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "tooltip-format": "󰂯  {status}",
+        "tooltip-format-on": "󰂯  {status}",
+        "tooltip-format-connected": "󰂱  Connected:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "    {device_alias}",
+        "tooltip-format-enumerate-connected-battery": "    {device_alias}  󰁹 {device_battery_percentage}%",
+        "on-click": "omarchy-launch-bluetooth",
+        "on-click-right": "bluetoothctl power toggle"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"],
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "speaker": "󰓃",
+            "hdmi": "󰡁"
+        },
+        "tooltip-format": "󰓃  {desc}\n{icon}  {volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-click-middle": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-",
+        "scroll-step": 2,
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 150
+    },
+
+    "custom/omarchy": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "omarchy-menu",
+        "on-click-right": "rofi -show drun"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "omarchy-menu power",
+        "on-click-right": "systemctl suspend"
+    }
 }
