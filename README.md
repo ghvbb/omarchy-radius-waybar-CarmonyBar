@@ -11,30 +11,13 @@
 
 ---
 
-[Features](#-features) • [Weather Setup](#-weather-setup) • [Installation](#-installation) • [Colors](#-color-palette)
-
-</div>
 
 ## ✨ Features
 * **Modular Island Design:** Clean separation between bar elements.
-* **Dynamic Battery:** Smart color shifting (**#16AB2A** discharging, **#F58E27** charging).
-* **Weather Integration:** Live temperature updates via `wttr.in`.
+* **OmGlass-Style:** re-build for OmGlass-Project 7.0
 * **Minimalist Aesthetic:** High transparency with subtle borders for a modern glass look.
 
 ---
-
-## ⛅ Weather Setup
-Update your `config.jsonc` with the following block:
-
-```json
-"custom/weather": {
-    "format": "󰖐 {}°C",
-    "interval": 3600,
-    "exec": "curl -s 'wttr.in/CITY_NAME?format=%t' | grep -oE '[0-9]+'",
-    "on-click": "xdg-open '[https://www.google.com/search?q=weather+CITY_NAME](https://www.google.com/search?q=weather+CITY_NAME)'"
-}
-
-   ```
 
 ## 🚀 Installation
 
@@ -43,8 +26,8 @@ Run this single command to backup your old config to waybarback and install Omar
 
 Bash
 ```json
-mv ~/.config/waybar ~/.config/waybarback 2>/dev/null; git clone https://github.com/hembramnishant50-glitch/omarchy-radius-waybar.git ~/.config/waybar && killall waybar; waybar &
+mv ~/.config/waybar ~/.config/Carmonyback 2>/dev/null; https://github.com/ghvbb/omarchy-radius-waybar-CarmonyBar.git ~/.config/waybar && killall waybar; waybar &
    ```
-[!IMPORTANT] Reboot your PC or restart your session after installation to ensure all changes take effect.
+[!IMPORTANT] Refresh your Waybar or restart your session after installation to ensure all changes take effect.
 
-<div align="center"> <br /> <sub>Built with ❤️ for the Linux Ricing community</sub> </div>
+<div align="center"> <br /> <sub>re-built By ghvbb for the Linux Ricing community</sub> </div>
