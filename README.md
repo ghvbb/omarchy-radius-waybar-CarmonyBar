@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⭕ Omarchy Radius Waybar
+# ⭕  RadiusBar - OmGlass Beta Waybar
 **A minimalist, modular Waybar theme built for modern Omarchy Linux setups.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
